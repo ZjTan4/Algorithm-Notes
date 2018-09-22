@@ -1,4 +1,4 @@
-﻿# CppNote
+# CppNote
 3-2 最小公倍数(2018/9/19(We-3))
 我们都会求两个数的最小公倍数，现在的问题和多个数的最小公倍数有关。a和b都是正整数(a<b),用lcm(a,…,b)代表[a,b]区间内的所有数字的最小公倍数，输入一个正整数N，求最小的M(M>N)，满足： lcm(1,…,M)=lcm(N+1,…,M)。
 Input
@@ -106,3 +106,17 @@ Note:
 
 The binary tree will have at most 100 nodes.
 The value of each node will only be 0 or 1.
+
+1-2 链表的反转(2018/9/22(Sa-3))
+下面所给的是链表节点的结构，你的任务是写一个函数将链表反转。
+    struct ListNode {
+        int val;
+        ListNode *next;
+        ListNode(){
+            val=0;
+            next=NULL;
+        }
+        ListNode(int x) : val(x), next(NULL) {}
+        ~ListNode(){}
+    };
+
