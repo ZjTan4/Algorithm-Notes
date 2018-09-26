@@ -32,23 +32,52 @@ The value of each node will only be 0 or 1.
 
 using namespace std;
 
-class TreeNode {
-public:
-	int val;
-	TreeNode *left;
-	TreeNode *right; 
-	TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- };
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+	int isEnd()
+	{
+		if (this->left == nullptr&&this->right == nullptr)
+		{
+			if (this->val == 0)return 0;
+			else return 1;
+		}
+		return -1;
+	}
+};
 
 class Solution {
 public:
 	TreeNode * pruneTree(TreeNode* root) {
-		if (root == nullptr) return nullptr;
-		
-		if (root->left->val == 0)
+		if (root!=nullptr)
 		{
-			pruneTree(root->left);
+			if (root->isEnd()==1)
+			{
+				return root;
+			}
+			else if (root->isEnd() == 0)
+			{
+				delete root;
+				return nullptr;
+			}
+			else
+			{
+				root->left = pruneTree(root->left);
+				root->right = pruneTree(root->right);
+
+				//adding this can avoid this method only deleting the last layer of given tree
+				if (root->isEnd() == 0)
+				{
+					delete root;
+					return nullptr;
+				}
+
+				return root;
+			}
 		}
+		return nullptr;
 	}
 };
 
@@ -128,10 +157,32 @@ string treeNodeToString(TreeNode* root) {
 		}
 
 		output += to_string(node->val) + ", ";
+
+		if (node->isEnd() == 1)continue;
+
 		q.push(node->left);
 		q.push(node->right);
 	}
 	return "[" + output.substr(0, output.length() - 2) + "]";
+}
+
+TreeNode* clear(TreeNode *root)
+{
+	if (root != nullptr)
+	{
+		if (root->isEnd() == -1)
+		{
+			root->left = clear(root->left);
+			root->right = clear(root->right);
+		}
+		else
+		{
+			delete root;
+			return nullptr;
+		}
+		delete root;
+	}
+	return nullptr;
 }
 
 int main() {
@@ -143,6 +194,8 @@ int main() {
 
 		string out = treeNodeToString(ret);
 		cout << out << endl;
+
+		root = clear(root);
 	}
 	return 0;
 }

@@ -1,4 +1,4 @@
-# CppNote
+﻿# CppNote
 3-2 最小公倍数(2018/9/19(We-3))
 我们都会求两个数的最小公倍数，现在的问题和多个数的最小公倍数有关。a和b都是正整数(a<b),用lcm(a,…,b)代表[a,b]区间内的所有数字的最小公倍数，输入一个正整数N，求最小的M(M>N)，满足： lcm(1,…,M)=lcm(N+1,…,M)。
 Input
@@ -81,7 +81,7 @@ All heights grid[i][j] are in the range [0, 100].
 All buildings in grid[i][j] occupy the entire grid cell: that is, they are a 1 x 1 x grid[i][j] rectangular prism.
 
 
-814. Binary Tree Pruning(unsolved)
+814. Binary Tree Pruning(2018/9/26(Th-4))
 We are given the head node root of a binary tree, where additionally every node's value is either a 0 or a 1.
 Return the same tree where every subtree (of the given tree) not containing a 1 has been removed.
 (Recall that the subtree of a node X is X, plus every node that is a descendant of X.)
