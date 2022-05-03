@@ -1,5 +1,6 @@
 ﻿﻿
 ﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿# CppNote
+### Below are the list of problems that the algorithm in this repo solved
 **3-2 最小公倍数(2018/9/19(We-3))**
 我们都会求两个数的最小公倍数，现在的问题和多个数的最小公倍数有关。a和b都是正整数(a<b),用lcm(a,…,b)代表[a,b]区间内的所有数字的最小公倍数，输入一个正整数N，求最小的M(M>N)，满足： lcm(1,…,M)=lcm(N+1,…,M)。
 Input
